@@ -46,6 +46,8 @@ bindsym Mod1+Tab exec rofi -modi "window" -show window
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+n exec $term -e ranger
+bindsym $mod+Shift+Escape exec sudo shutdown -f now
+bindsym $mod+Shift+Backspace exec sudo reboot
 
 # change focus
 bindsym $mod+j focus left
