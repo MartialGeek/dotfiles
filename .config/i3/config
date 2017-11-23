@@ -163,12 +163,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
-
 set_from_resource $black i3wm.color0
 set_from_resource $grey i3wm.color8
 
@@ -184,6 +178,7 @@ client.background       #ffffff
 exec --no-startup-id feh --bg-scale Images/wallpapers/welcome_to_neo_beijing_by_johnsonting-dbtzzls.jpg
 exec --no-startup-id compton -b
 exec --no-startup-id udiskie -ANt2 -f open-ranger
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 gaps inner 10
 gaps outer 10
