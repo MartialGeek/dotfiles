@@ -175,10 +175,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-exec --no-startup-id feh --bg-scale Images/wallpapers/welcome_to_neo_beijing_by_johnsonting-dbtzzls.jpg
 exec --no-startup-id compton -b
 exec --no-startup-id udiskie -ANt2 -f open-ranger
-exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/bg.sh
 
 gaps inner 10
 gaps outer 10
