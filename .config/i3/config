@@ -48,6 +48,7 @@ bindsym Mod1+Tab exec rofi -modi "window" -show window
 bindsym $mod+n exec $term -e ranger
 bindsym $mod+Shift+Escape exec sudo shutdown -f now
 bindsym $mod+Shift+Backspace exec sudo reboot
+bindsym $mod+Shift+Return exec slock
 
 # change focus
 bindsym $mod+j focus left
