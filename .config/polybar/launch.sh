@@ -3,7 +3,7 @@
 killall -q polybar
 while pgreg -u $UID -x polybar > /dev/null; do sleep 1; done
 
-polybar default &
+polybar -r default &
 
 echo "Bar launched..."
 
