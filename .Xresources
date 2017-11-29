@@ -27,7 +27,6 @@
 URxvt.font: xft:Meslo LG L for Powerline:pixelsize=12
 URxvt.scrollBar: false
 URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0200/c800
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
