@@ -204,7 +204,7 @@ exec --no-startup-id slack
 exec --no-startup-id nm-applet
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/bg.sh
-exec_always --no-startup-id $HOME/.screenlayout/xrandr.sh
+exec_always --no-startup-id $HOME/.screenlayout/hotplug.sh
 
 gaps inner 5
 gaps outer 5 
