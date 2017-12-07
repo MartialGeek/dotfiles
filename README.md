@@ -25,6 +25,8 @@ See the [Archlinux wiki](https://wiki.archlinux.org/index.php/Udev#Execute_on_VG
 
 You also need to add sudo rules to allow your user, or a group, to run the commands `reboot` and `poweroff`.
 
+I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for the desktop background. So to change it, simply copy an image with this name in the directory, or create a symbolic link, and reload i3.
+
 # Requirements
 
 * [i3-gaps](https://github.com/Airblader/i3) (or i3 basic if you remove the parameters "gaps inner" and "gaps outer" at the end of the configuration file)
