@@ -1,6 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 BG_PATH="${HOME}/.config/wallpaper/bg"
+
+if [ ! -d $(dirname ${BG_PATH}) ]
+then
+    mkdir -p ${BG_PATH}
+fi
 
 if [ -f "${BG_PATH}.jpg" ]
 then

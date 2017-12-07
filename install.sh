@@ -11,11 +11,14 @@ declare -a FILES_TO_LINK=(
     .config/i3/config
     .config/polybar/config
     .config/polybar/launch.sh
+    .config/wallpaper/bg.jpg
     .screenlayout/hotplug.sh
 )
 
 function debug {
-    echo "debug: ${1}"
+    if [ "${DEBUG}" -eq 1 ]; then
+        echo "debug: ${1}"
+    fi
 }
 
 function run {
