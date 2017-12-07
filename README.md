@@ -23,7 +23,7 @@ There are references to my screens setup in the i3 config file. i3 should ignore
 
 See the [Archlinux wiki](https://wiki.archlinux.org/index.php/Udev#Execute_on_VGA_cable_plug_in) for more explanations.
 
-You also need to add sudo rules to allow your user, or a group, to run the commands `reboot` and `poweroff`.
+You also need to add sudo rules to allow your user, or a group, to run the commands `reboot` and `poweroff` without password.
 
 I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for the desktop background. So to change it, simply copy an image with this name in the directory, or create a symbolic link, and reload i3.
 
