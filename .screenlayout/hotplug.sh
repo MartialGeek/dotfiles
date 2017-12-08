@@ -4,11 +4,6 @@ export DISPLAY=:0
 
 set -e
 
-MONITOR_INTERNAL='eDP-1'
-MONITOR_1='DP-1-1'
-MONITOR_2='DP-1-2'
-XRANDR="xrandr --output ${MONITOR_INTERNAL} --primary --mode 1920x1080 --pos 0x616"
-
 function log {
     logger -t hotplug "$1"
 }
@@ -20,27 +15,33 @@ function is_monitor_connected {
 
 log "The monitors setup has changed"
 
+SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+CONFIG_PATH="${SCRIPT_PATH}/config.sh"
+
+if [ ! -f "${CONFIG_PATH}" ]; then
+    log "Cannot find the script ${CONFIG_PATH}"
+    exit 1
+fi
+
+. ${CONFIG_PATH}
+
+XRANDR="xrandr --output ${PRIMARY} --primary ${MONITORS[${PRIMARY}]}"
+unset MONITORS[${PRIMARY}]
+
 sleep 0.5
 
-XRANDR="${XRANDR} --output ${MONITOR_1}"
-is_detected=$(is_monitor_connected ${MONITOR_1})
+for monitor in "${!MONITORS[@]}"
+do
+    XRANDR="${XRANDR} --output ${monitor}"
+    is_detected=$(is_monitor_connected ${monitor})
 
-if [ "${is_detected}" -eq 0 ]; then
-    log "${MONITOR_1} detected"
-    XRANDR="${XRANDR} --mode 1920x1080 --pos 3840x0"
-else
-    XRANDR="${XRANDR} --off"
-fi
-
-XRANDR="${XRANDR} --output ${MONITOR_2}"
-is_detected=$(is_monitor_connected ${MONITOR_2})
-
-if [ "${is_detected}" -eq 0 ]; then
-    log "${MONITOR_2} detected"
-    XRANDR="${XRANDR} --mode 1920x1080 --pos 1920x0"
-else
-    XRANDR="${XRANDR} --off"
-fi
+    if [ "${is_detected}" -eq 0 ]; then
+        log "${monitor} detected"
+        XRANDR="${XRANDR} ${MONITORS[$monitor]}"
+    else
+        XRANDR="${XRANDR} --off"
+    fi
+done
 
 log "Running command ${XRANDR}"
 eval ${XRANDR}
