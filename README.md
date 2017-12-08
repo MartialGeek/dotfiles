@@ -3,7 +3,7 @@ My dotfiles for configuring i3-gaps
 
 # Usage
 
-Basically, each file and folders in the repository is corresponding to the same item in your $HOME directory, except for .git of course.
+Basically, each file and folder in the repository is corresponding to the same item in your $HOME directory, except for .git of course.
 
 First, create the configuration file for your monitors:
 
