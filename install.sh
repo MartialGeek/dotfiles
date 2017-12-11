@@ -13,6 +13,7 @@ declare -a FILES_TO_LINK=(
     .config/polybar/config
     .config/polybar/launch.sh
     .config/wallpaper/bg.jpg
+    .screenlayout/config.sh
     .screenlayout/hotplug.sh
 )
 

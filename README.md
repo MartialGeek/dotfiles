@@ -3,9 +3,17 @@ My dotfiles for configuring i3-gaps
 
 # Usage
 
-Basically, each files and folders in the repository is corresponding to the same item in your $HOME directory, except for .git of course. So create symlinks for each files and reload your environment if necessary.
+Basically, each file and folder in the repository is corresponding to the same item in your $HOME directory, except for .git of course.
 
-You can use the installation script to automate the symbolic links:
+First, create the configuration file for your monitors:
+
+    cd .screenlayout
+    cp config.sh.dist config.sh
+
+Run the xrandr command to display your monitors setup, then edit the file config.sh according to the output of xrandr. If you have only one monitor, simply set the monitor's name in the variable `PRIMARY`. Add the xrandr options of your monitor by editing the value of the key `PRIMARY` in the array `MONITORS`.
+If you have more than one monitor, add them in the array.
+
+Now you can use the installation script to automate the creation of the symbolic links:
 
     ./install.sh
 
@@ -13,17 +21,21 @@ This script does not install the files .zshrc and .gitconfig.
 
 Please note that the file .gitconfig contains the configuration for my user, with my name and my email address. So don't use it without modifying it ;)
 
-The script .screenlayout/hotplug.sh is initially called by the i3 configuration file and by a udev rule (you can find an example in the file 90-monitor-hotplug.example.rules) when monitors are un/plugged. Currently, the screen setup hard-coded in this script is corresponding to my laptop, so edit it before using it.
+The script .screenlayout/hotplug.sh is executed by the i3 configuration file and by a udev rule (you can find an example in the file 90-monitor-hotplug.example.rules) when monitors are un/plugged.
 You can use it by copying the rule in the directory /etc/udev/rules.d/ (don't forget to edit the file according to your system).
 Then you can force the reloading of the udev rules by running:
 
     # udevadm control --reload
 
-There are references to my screens setup in the i3 config file. i3 should ignore them if the monitors does not exist.
-
 See the [Archlinux wiki](https://wiki.archlinux.org/index.php/Udev#Execute_on_VGA_cable_plug_in) for more explanations.
 
-You also need to add sudo rules to allow your user, or a group, to run the commands `reboot` and `poweroff` without password.
+There are references to my screens setup in the i3 config file. i3 should ignore them if the monitors does not exist.
+
+You also need to add sudo rules to allow your user, or a group, to run the commands `reboot` and `poweroff` without password. For example:
+
+    username ALL=(ALL) NOPASSWD: /usr/bin/poweroff, /usr/bin/reboot
+
+Check the path of these executables on your system (`which poweroff && which reboot`).
 
 I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for the desktop background. So to change it, simply copy an image with this name in the directory, or create a symbolic link, and reload i3.
 

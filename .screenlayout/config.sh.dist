@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+PRIMARY="HDMI-1"
+
+declare -A MONITORS
+MONITORS[${PRIMARY}]="--mode 1920x1080"
+MONITORS["DVI-I-2"]="--mode 1920x1080 --pos 1920x0"
+
