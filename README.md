@@ -43,6 +43,7 @@ I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for 
 * [udiskie](https://github.com/coldfix/udiskie)
 * [nm-applet](git://git.gnome.org/network-manager-applet) ([see the NetworkManager website](https://wiki.gnome.org/Projects/NetworkManager/))
 * [xrandr](https://www.x.org/wiki/)
+* [dunst](https://github.com/dunst-project/dunst), a great notification daemon
 
 # References 
 

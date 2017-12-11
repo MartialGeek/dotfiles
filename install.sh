@@ -8,6 +8,7 @@ declare -a FILES_TO_LINK=(
     .vim_runtime/my_configs.vim
     .config/bg.sh
     .config/compton.conf
+    .config/dunst/dunstrc
     .config/i3/config
     .config/polybar/config
     .config/polybar/launch.sh
