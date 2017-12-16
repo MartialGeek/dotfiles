@@ -39,6 +39,8 @@ Check the path of these executables on your system (`which poweroff && which reb
 
 I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for the desktop background. So to change it, simply copy an image with this name in the directory, or create a symbolic link, and reload i3.
 
+The screen locking is binded on Super+Shift+Return.
+
 # Requirements
 
 * [i3-gaps](https://github.com/Airblader/i3) (or i3 basic if you remove the parameters "gaps inner" and "gaps outer" at the end of the configuration file)
@@ -56,6 +58,7 @@ I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for 
 * [nm-applet](git://git.gnome.org/network-manager-applet) ([see the NetworkManager website](https://wiki.gnome.org/Projects/NetworkManager/))
 * [xrandr](https://www.x.org/wiki/)
 * [dunst](https://github.com/dunst-project/dunst), a great notification daemon
+* [i3lock-blur](https://github.com/karulont/i3lock-blur)
 
 # References 
 
