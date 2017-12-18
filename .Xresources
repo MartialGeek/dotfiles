@@ -25,7 +25,7 @@ Xcursor.size:   16
 ! ------------------------------------------------------------------------------
 ! Urxvt
 ! ------------------------------------------------------------------------------
-URxvt.font: xft:Meslo LG L for Powerline:pixelsize=12
+URxvt.font: xft:Meslo LG L for Powerline:size=8
 URxvt.scrollBar: false
 URxvt*depth: 32
 URxvt.background: [80]black
