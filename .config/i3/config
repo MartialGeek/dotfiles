@@ -208,5 +208,5 @@ exec_always --no-startup-id dunst
 
 gaps inner 5
 gaps outer 5 
-new_window pixel 1
+new_window none
 
