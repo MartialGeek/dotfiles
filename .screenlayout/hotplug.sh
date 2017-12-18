@@ -45,4 +45,5 @@ done
 
 log "Running command ${XRANDR}"
 eval ${XRANDR}
+${HOME}/.config/polybar/launch.sh
 
