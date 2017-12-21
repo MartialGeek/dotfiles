@@ -59,6 +59,8 @@ The screen locking is binded on Super+Shift+Return.
 * [xrandr](https://www.x.org/wiki/)
 * [dunst](https://github.com/dunst-project/dunst), a great notification daemon
 * [i3lock-blur](https://github.com/karulont/i3lock-blur)
+* [lightdm](https://www.freedesktop.org/wiki/Software/LightDM/)
+* [light locker](https://github.com/the-cavalry/light-locker)
 
 # References 
 

@@ -47,7 +47,7 @@ bindsym Mod1+Tab exec rofi -modi "window" -show window
 
 bindsym $mod+n exec $term -e ranger
 bindsym $mod+Shift+Escape exec --no-startup-id sudo poweroff
-bindsym $mod+Shift+Return exec --no-startup-id i3lock --fuzzy
+bindsym $mod+Shift+Return exec --no-startup-id light-locker-command -l 
 
 # change focus
 bindsym $mod+j focus left
@@ -201,6 +201,7 @@ exec --no-startup-id google-chrome
 exec --no-startup-id $term
 exec --no-startup-id slack
 exec --no-startup-id nm-applet
+exec --no-startup-id light-locker --lock-on-lid
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/bg.sh
 exec_always --no-startup-id $HOME/.screenlayout/hotplug.sh
