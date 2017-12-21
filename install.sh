@@ -4,6 +4,7 @@ DEBUG=${DEBUG:-0}
 ROOT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 declare -a FILES_TO_LINK=(
+    .vimrc
     .Xresources
     .vim_runtime/my_configs.vim
     .config/bg.sh
