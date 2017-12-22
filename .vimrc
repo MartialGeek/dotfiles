@@ -1,5 +1,4 @@
 " Common
-execute pathogen#infect()
 set nocompatible
 syntax enable
 filetype plugin on
