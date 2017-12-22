@@ -50,7 +50,7 @@ The screen locking is binded on Super+Shift+Return.
 * [feh](https://feh.finalrewind.org/)
 * [Font Awesome](http://fontawesome.io/)
 * [Powerline fonts](https://github.com/powerline/fonts)
-* vim: I recommand to use the [Awesome vimrc of amix](https://github.com/amix/vimrc)
+* vim: mininal version 8 
 * [ranger](http://ranger.nongnu.org/)
 * [compton](https://github.com/chjj/compton)
 * [pamixer](https://github.com/cdemoulins/pamixer)

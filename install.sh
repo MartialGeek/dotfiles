@@ -78,31 +78,41 @@ ask() {
 create_links() {
     for file in "${FILES_TO_LINK[@]}"; do
         declare local file_path=$(dirname $file)
+
+        if [ "${file_path}" == "." ]; then
+            file_path=""
+        fi
+
         declare local file_name=$(basename $file)
         declare local source_file_path="${ROOT_PATH}/${file}"
-        declare local target_directory="${HOME}/${file_path}"
+        declare local target_directory="${HOME}"
+
+        if [ "${file_path}" != "" ]; then
+            target_directory="${target_directory}/${file_path}"
+        fi
+
+        if [ ! -d "${target_directory}" ]; then
+            log "The path ${target_directory} does not exist"
+            run "mkdir -p ${target_directory}"
+        fi
+
         declare local target_path="${target_directory}/${file_name}"
+        declare local create_link_cmd="ln -sf ${source_file_path} ${target_path}"
 
-        if [ "${file_path}" != "." ]; then
-            if [ ! -d "${target_directory}" ]; then
-                log "The path ${target_directory} does not exist"
-                run "mkdir -p ${target_directory}"
-            fi
+        if [ -f "${target_path}" ]; then
+            declare local force="n"
 
-            if [ -f "${target_path}" ]; then
-                declare local create_link_cmd="ln -sf ${source_file_path} ${target_path}"
-                declare local force="n"
+            if [ "${FORCE}" -eq 1 ]; then
+                run "${create_link_cmd}"
+            else
+                declare local force_create=$(ask "The file ${target_path} already exists. Do you want to force the creation of the link? [Y/n]" "Y")
 
-                if [ "${FORCE}" -eq 1 ]; then
+                if [[ "${force_create}" =~ [Yy] ]]; then
                     run "${create_link_cmd}"
-                else
-                    declare local force_create=$(ask "The file ${target_path} already exists. Do you want to force the creation of the link? [Y/n]" "Y")
-
-                    if [[ "${force_create}" =~ [Yy] ]]; then
-                        run "${create_link_cmd}"
-                    fi
                 fi
             fi
+        else
+            run "${create_link_cmd}"
         fi
     done
 
