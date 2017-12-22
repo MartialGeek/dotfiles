@@ -1,13 +1,18 @@
 My dotfiles for configuring i3-gaps
 ===================================
 
-# Usage
+# Install
 
 Basically, each file and folder in the repository is corresponding to the same item in your $HOME directory, except for .git of course.
 
-First, create the configuration file for your monitors:
+First, clone the repository in your HOME directory:
 
-    cd .screenlayout
+    cd
+    git clone https://github.com/MartialGeek/dotfiles .dotfiles
+
+Then, create the configuration file for your monitors:
+
+    cd .dotfiles/.screenlayout
     cp config.sh.dist config.sh
 
 Run the xrandr command to display your monitors setup, then edit the file config.sh according to the output of xrandr. If you have only one monitor, simply set the monitor's name in the variable `PRIMARY`. Add the xrandr options of your monitor by editing the value of the key `PRIMARY` in the array `MONITORS`.
@@ -15,9 +20,14 @@ If you have more than one monitor, add them in the array.
 
 Now you can use the installation script to automate the creation of the symbolic links:
 
-    ./install.sh
+    ~/.dotfiles/install.sh
 
-This script does not install the files .zshrc and .gitconfig.
+This script does not install the files .zshrc and .gitconfig and takes some options:
+* `-h` or `--help`: displays the usage and exit
+* `-n` or `--dry-run`: don't execute the commands, only log them
+* `-f` or `--force`: force the recreation of the symbolic links, without asking questions
+
+You can monitor the execution of the script with `journalctl -f` if it is installed on your system, otherwise the logs are displayed on the standard output.
 
 Please note that the file .gitconfig contains the configuration for my user, with my name and my email address. So don't use it without modifying it ;)
 
