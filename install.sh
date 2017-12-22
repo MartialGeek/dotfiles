@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-DRY_RUN=${DRY_RUN:-0}
+ARGS=`getopt -o nfh --long dry-run,force,help -n $(basename "${0}") -- "$@"`
+eval set -- "${ARGS}"
+unset ARGS
+
+DRY_RUN=0
+FORCE=0
 ROOT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 VIM_RUNTIME_PATH="${HOME}/.vim"
 BG_PATH=".config/wallpaper/bg.jpg"
@@ -30,6 +35,19 @@ declare -a FILES_TO_LINK=(
 declare -a VIM_PLUGINS=(
    https://github.com/scrooloose/nerdtree 
 )
+
+usage() {
+    cat <<USAGE
+Usage: ${0} [OPTION]...
+Install the dotfiles in your environment.
+
+The options are:
+    -h, --help          Display this help and exit
+    -n, --dry-run       Do not execute the commands, only log the actions via the logger
+    -f, --force         Force the creation of the symbolic links
+
+USAGE
+}
 
 log() {
     eval "${LOGGER} '${1}'"
@@ -72,10 +90,17 @@ create_links() {
             fi
 
             if [ -f "${target_path}" ]; then
-                force=$(ask "The file ${target_path} already exists. Do you want to force the creation of the link? [Y/n]" "Y")
+                declare local create_link_cmd="ln -sf ${source_file_path} ${target_path}"
+                declare local force="n"
 
-                if [ "${force}" == "Y" ]; then
-                    run "ln -sf ${source_file_path} ${target_path}"
+                if [ "${FORCE}" -eq 1 ]; then
+                    run "${create_link_cmd}"
+                else
+                    declare local force_create=$(ask "The file ${target_path} already exists. Do you want to force the creation of the link? [Y/n]" "Y")
+
+                    if [[ "${force_create}" =~ [Yy] ]]; then
+                        run "${create_link_cmd}"
+                    fi
                 fi
             fi
         fi
@@ -98,6 +123,34 @@ install_vim_env() {
         run "git clone ${plugin} &> /dev/null"
     done
 }
+
+while true; do
+    case "${1}" in
+        -n|--dry-run)
+            log "Dry-run mode enabled"
+            DRY_RUN=1
+            shift
+            ;;
+        -f|--force)
+            log "Force mode enabled"
+            FORCE=1
+            shift
+            ;;
+        -h|--help)
+            log "Usage"
+            usage
+            exit 0
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            usage
+            exit 1
+            ;;
+    esac
+done
 
 create_links
 install_vim_env
