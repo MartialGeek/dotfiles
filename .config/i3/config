@@ -196,12 +196,11 @@ client.background       #ffffff
 
 exec --no-startup-id compton -b
 exec --no-startup-id udiskie -ANt2 -f open-ranger
-exec --no-startup-id firefox
-exec --no-startup-id google-chrome
-exec --no-startup-id $term
-exec --no-startup-id slack
+exec firefox
+exec google-chrome
+exec slack
 exec --no-startup-id nm-applet
-exec --no-startup-id light-locker --lock-on-lid
+exec --no-startup-id light-locker
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/bg.sh
 exec_always --no-startup-id $HOME/.screenlayout/hotplug.sh
