@@ -17,8 +17,9 @@ set shiftwidth=4
 set number
 set relativenumber
 
-" Path for deep search
+" Search
 set path+=**
+set hlsearch
 
 " Display all matching files when we tab complete
 set wildmenu
