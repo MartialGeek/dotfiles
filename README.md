@@ -22,14 +22,12 @@ Now you can use the installation script to automate the creation of the symbolic
 
     ~/.dotfiles/install.sh
 
-This script does not install the files .zshrc and .gitconfig and takes some options:
+This script does not install the file .zshrc and takes some options:
 * `-h` or `--help`: displays the usage and exit
 * `-n` or `--dry-run`: don't execute the commands, only log them
 * `-f` or `--force`: force the recreation of the symbolic links, without asking questions
 
 You can monitor the execution of the script with `journalctl -f` if it is installed on your system, otherwise the logs are displayed on the standard output.
-
-Please note that the file .gitconfig contains the configuration for my user, with my name and my email address. So don't use it without modifying it ;)
 
 The script .screenlayout/hotplug.sh is executed by the i3 configuration file and by a udev rule (you can find an example in the file 90-monitor-hotplug.example.rules) when monitors are un/plugged.
 You can use it by copying the rule in the directory /etc/udev/rules.d/ (don't forget to edit the file according to your system).
