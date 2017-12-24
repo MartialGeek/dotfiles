@@ -1,7 +1,7 @@
 " Common
 set nocompatible
 syntax enable
-filetype plugin on
+filetype plugin indent on
 
 " Mouse
 set mouse=a
