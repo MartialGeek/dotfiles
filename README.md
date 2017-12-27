@@ -66,7 +66,6 @@ The screen locking is binded on Super+Shift+Return.
 * [nm-applet](git://git.gnome.org/network-manager-applet) ([see the NetworkManager website](https://wiki.gnome.org/Projects/NetworkManager/))
 * [xrandr](https://www.x.org/wiki/)
 * [dunst](https://github.com/dunst-project/dunst), a great notification daemon
-* [i3lock-blur](https://github.com/karulont/i3lock-blur)
 * [lightdm](https://www.freedesktop.org/wiki/Software/LightDM/)
 * [light locker](https://github.com/the-cavalry/light-locker)
 
