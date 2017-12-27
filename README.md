@@ -45,7 +45,9 @@ You also need to add sudo rules to allow your user, or a group, to run the comma
 
 Check the path of these executables on your system (`which poweroff && which reboot`).
 
-I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for the desktop background. So to change it, simply copy an image with this name in the directory, or create a symbolic link, and reload i3.
+I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for the desktop background. So to change it, simply copy an image with this name in the directory, or create a symbolic link, and reload i3. You can also use the script `set-bg` installed in /usr/local/bin to change the wallpaper. Simply pass a valid jpg or png picture as first argument:
+
+    set-bg Images/my-wallpaper.png
 
 The screen locking is binded on Super+Shift+Return.
 

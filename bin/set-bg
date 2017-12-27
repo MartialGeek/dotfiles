@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+PICTURE_PATH=$(realpath "${1}")
+PICTURE_FILENAME=$(basename "${PICTURE_PATH}")
+PICTURE_EXT="${PICTURE_PATH##*.}"
+BG_PATH="${HOME}/.config/wallpaper/bg.${PICTURE_EXT}"
+BG_DIRECTORY="$(dirname ${BG_PATH})"
+
+if [ ! -f "${PICTURE_PATH}" ]; then
+    echo "The picture ${PICTURE_PATH} was not found"
+    exit 1
+fi
+
+if [[ ! "${PICTURE_EXT}" =~ jpg|png ]]; then
+    echo "The picture must have a jpg or png extension"
+    exit 1
+fi
+
+if [ ! -d "${BG_DIRECTORY})" ]
+then
+    mkdir -p "${BG_DIRECTORY}"
+fi
+
+unlink "$(dirname ${BG_PATH})/bg.jpg" &> /dev/null 
+unlink "$(dirname ${BG_PATH})/bg.png" &> /dev/null 
+ln -s "${PICTURE_PATH}" "${BG_PATH}"
+feh --bg-scale ${BG_PATH}
+

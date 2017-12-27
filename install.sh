@@ -37,6 +37,7 @@ declare -a VIM_PLUGINS=(
 
 declare -A BINARIES=(
     ["bin/open-ranger"]="/usr/local/bin/open-ranger"
+    ["bin/set-bg"]="/usr/local/bin/set-bg"
 )
 
 usage() {
