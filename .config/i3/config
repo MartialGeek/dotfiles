@@ -207,6 +207,7 @@ exec_always --no-startup-id $HOME/.screenlayout/hotplug.sh
 exec_always --no-startup-id dunst
 
 gaps inner 5
-gaps outer 5 
+gaps outer 0 
+smart_gaps on
 new_window none
 
