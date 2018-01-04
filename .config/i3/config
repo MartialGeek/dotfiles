@@ -201,6 +201,7 @@ exec google-chrome
 exec slack
 exec --no-startup-id nm-applet
 exec --no-startup-id light-locker
+exec --no-startup-id blueman-applet
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/bg.sh
 exec_always --no-startup-id $HOME/.screenlayout/hotplug.sh
