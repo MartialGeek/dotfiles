@@ -49,7 +49,11 @@ I configured i3 to use the image `$HOME/.config/wallpaper/bg.jpg` (or .png) for 
 
     set-bg Images/my-wallpaper.png
 
-The screen locking is binded on Super+Shift+Return.
+The screen locking is binded on Super+Shift+Return. If you want to lock your session on suspend, copy the systemd unit bin/slock@service in /etc/systemd/system:
+
+    sudo cp bin/slock@service /etc/systemd/system/.
+
+Then enable the `slock@user.service` systemd unit for it to take effect for the username *user* (see [the archlinux wiki](https://wiki.archlinux.org/index.php/Slock#Tips_and_tricks)).
 
 # Requirements
 
