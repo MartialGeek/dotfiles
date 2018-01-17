@@ -28,7 +28,7 @@ fi
 XRANDR="xrandr --output ${PRIMARY} --primary ${MONITORS[${PRIMARY}]}"
 unset MONITORS[${PRIMARY}]
 
-sleep 0.5
+sleep 0.5 
 
 for monitor in "${!MONITORS[@]}"
 do
@@ -45,5 +45,5 @@ done
 
 log "Running command ${XRANDR}"
 eval ${XRANDR}
-${HOME}/.config/polybar/launch.sh
+i3 restart
 
