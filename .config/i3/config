@@ -47,7 +47,7 @@ bindsym Mod1+Tab exec rofi -modi "window" -show window
 
 bindsym $mod+n exec $term -e ranger
 bindsym $mod+Shift+Escape exec --no-startup-id sudo poweroff
-bindsym $mod+Shift+Return exec --no-startup-id light-locker-command -l 
+bindsym $mod+Shift+Return exec --no-startup-id slock 
 
 # change focus
 bindsym $mod+j focus left
@@ -140,11 +140,13 @@ workspace $ws2 output DP-1-2
 workspace $ws3 output DP-1-1
 workspace $ws4 output DP-1-1
 
-assign [class="Firefox"] $ws1
-assign [class="Slack"] $ws5
-assign [class="Google-chrome|Chromium"] $ws2
-assign [class="jetbrains-phpstorm"] $ws3
-assign [class="URxvt"] $ws4
+workspace_layout tabbed
+
+for_window [class="Firefox"] move to workspace $ws1
+for_window [class="Slack"] move to workspace $ws5
+for_window [class="Google-chrome|Chromium"] move to workspace $ws2
+for_window [class="jetbrains-phpstorm"] move to workspace $ws3
+for_window [class="URxvt"] move to workspace $ws4, layout default
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -200,11 +202,10 @@ exec firefox
 exec google-chrome
 exec slack
 exec --no-startup-id nm-applet
-exec --no-startup-id light-locker
 exec --no-startup-id blueman-applet
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/bg.sh
-exec_always --no-startup-id $HOME/.screenlayout/hotplug.sh
+exec --no-startup-id $HOME/.screenlayout/hotplug.sh
 exec_always --no-startup-id dunst
 
 gaps inner 5

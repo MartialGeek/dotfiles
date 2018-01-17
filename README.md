@@ -69,7 +69,7 @@ The screen locking is binded on Super+Shift+Return.
 * [xrandr](https://www.x.org/wiki/)
 * [dunst](https://github.com/dunst-project/dunst), a great notification daemon
 * [lightdm](https://www.freedesktop.org/wiki/Software/LightDM/)
-* [light locker](https://github.com/the-cavalry/light-locker)
+* [slock](https://tools.suckless.org/slock/)
 * (Optional) [blueman](https://github.com/blueman-project/blueman)
 
 # References 
