@@ -1,0 +1,4 @@
+URxvt.font: xft:Meslo LG L for Powerline:size=10
+URxvt.scrollBar: false
+URxvt.lineSpace: -0.8
+
