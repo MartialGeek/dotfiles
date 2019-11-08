@@ -25,17 +25,28 @@ bspc config gapless_monocle      true
 if [ "$(hostname)" == "yoda" ]; then
     bspc rule -a firefox desktop=1
     bspc rule -a URxvt desktop=2 follow=on
+elif [ "$(hostname)" == "soad" ]; then
+    bspc rule -a Chromium desktop=1
+    bspc rule -a firefox desktop=2
+    bspc rule -a Slack desktop=3 state=pseudo_tiled
+    bspc rule -a TelegramDesktop desktop=3 state=pseudo_tiled
+    bspc rule -a zoom desktop=3 state=pseudo_tiled
+    bspc rule -a URxvt desktop=4
+    bspc rule -a code-oss desktop=5
 fi
 
 start compton 
 # wal must be executed BEFORE the polybar launching to retrieve the right color (for the polybar transparency)
 wal -R
-$HOME/.config/polybar/start.sh &
+$HOME/.config/polybar/launch.sh &
+start dunst
+start nm-applet 
 
 if [ "$(hostname)" == "yoda" ]; then
     start nextcloud --background
     start protonmail-bridge --no-window
-    start nm-applet 
     start dunst
+elif [ "$(hostname)" == "soad" ]; then
+    start blueman-applet
 fi
 
