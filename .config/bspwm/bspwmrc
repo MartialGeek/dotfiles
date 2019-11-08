@@ -9,7 +9,7 @@ start() {
     exec "$@" &
 }
 
-start sxhkd &
+start sxhkd
 
 if [ "$(hostname)" == "yoda" ]; then
     bspc monitor -d 1 2 3 4 5 6
@@ -45,7 +45,6 @@ start nm-applet
 if [ "$(hostname)" == "yoda" ]; then
     start nextcloud --background
     start protonmail-bridge --no-window
-    start dunst
 elif [ "$(hostname)" == "soad" ]; then
     start blueman-applet
 fi
