@@ -1,0 +1,51 @@
+# vim: ft=cfg
+[global]
+    font = "Hack 10"
+    markup = full
+    max_icon_size = 16
+    notification_height = 40
+    format = "<b>%a</b> %b %p"
+    sort = yes
+    indicate_hidden = yes
+    alignment = left
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = no
+    ignore_newline = no
+    geometry = "645x5+715+5"
+    shrink = no
+    transparency = 0
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    sticky_history = yes
+    line_height = 0
+    padding = 8
+    horizontal_padding = 2 
+    separator_height = 1
+    separator_color = auto
+    startup_notification = false
+    icon_position = left
+    icon_path = /usr/share/icons/Papirus/16x16/apps
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+egrave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "{color0}" 
+    foreground = "{color7}"
+    timeout = 5
+
+[urgency_normal]
+    background = "{color0}" 
+    foreground = "{color7}"
+    timeout = 20
+
+[urgency_critical]
+    background = "{color0}" 
+    foreground = "{color7}"
+    timeout = 0
+
