@@ -45,6 +45,7 @@ elif [ "$(hostname)" == "soad" ]; then
     bspc rule -a code-oss desktop=5
 fi
 
+start numlockx
 start compton 
 # wal must be executed BEFORE the polybar launching to retrieve the right color (for the polybar transparency)
 wal -R
