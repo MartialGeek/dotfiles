@@ -1,41 +1,11 @@
 ! ------------------------------------------------------------------------------
 ! Common
 ! ------------------------------------------------------------------------------
-*.foreground:   #bccae2
-*.background:   #24262b
-*.cursorColor:  #bccae2
-*.color0:       #24262b
-*.color8:       #3a3d45
-*.color1:       #843c56
-*.color9:       #ab4e70
-*.color2:       #83a86f
-*.color10:      #a3d18a
-*.color3:       #a87458
-*.color11:      #d3926f
-*.color4:       #4a6aa3
-*.color12:      #6b8bc3
-*.color5:       #66518a
-*.color13:      #9375c7
-*.color6:       #4aa36a
-*.color14:      #5dcc85
-*.color7:       #bccae2
-*.color15:      #dce9ff
 Xcursor.size:   16
 
 ! ------------------------------------------------------------------------------
 ! Urxvt
 ! ------------------------------------------------------------------------------
-URxvt.font: xft:Meslo LG L for Powerline:size=8
+URxvt.font: xft:Meslo LG L for Powerline:size=10
 URxvt.scrollBar: false
-URxvt*depth: 32
-URxvt.background: [90]black
-
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-rofi.color-enabled: true
-rofi.color-window: #273238, #273238, #1e2529
-rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
