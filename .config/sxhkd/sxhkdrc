@@ -21,6 +21,9 @@ super + Delete
 super + alt + BackSpace
     urxvt -e gotop
 
+alt + Tab
+    rofi -show window
+
 #
 # multimedia
 #
