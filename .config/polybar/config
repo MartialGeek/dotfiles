@@ -148,11 +148,11 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 ws-icon-0 = 1;
-ws-icon-1= 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;5
-ws-icon-5 = 6;6
+ws-icon-1 = 2;
+ws-icon-2= 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}

@@ -3,9 +3,14 @@
 killall -q polybar
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
-for m in $(xrandr --query | grep '\bconnected' | cut -d " " -f1); do
+MONITORS=${MONITORS:-$(xrandr --listactivemonitors | tail -n +2 | awk '{print $4}')}
+
+for m in $MONITORS; do
     MONITOR=$m polybar -r desktops &
     MONITOR=$m polybar -r tray &
-    MONITOR=$m polybar -r mpd &
+
+    if [ "$(hostname)" == "yoda" ]; then
+        MONITOR=$m polybar -r mpd &
+    fi
 done
 
