@@ -1,15 +1,21 @@
 #!/usr/bin/env sh
 
-killall -q polybar
-while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
+log() {
+    logger -t polybar "$1"
+}
 
-MONITORS=${MONITORS:-$(xrandr --listactivemonitors | tail -n +2 | awk '{print $4}')}
+$HOME/.config/polybar/kill.sh
 
-for m in $MONITORS; do
+MONITORS=(${MONITORS:-$(xrandr --listactivemonitors | tail -n +2 | awk '{print $4}')})
+
+for m in "${MONITORS[@]}"; do
+    log "$m polybar -r desktops &"
     MONITOR=$m polybar -r desktops &
+    log "$m polybar -r tray &"
     MONITOR=$m polybar -r tray &
 
     if [ "$(hostname)" == "yoda" ]; then
+        log "$m polybar -r mpd &"
         MONITOR=$m polybar -r mpd &
     fi
 done

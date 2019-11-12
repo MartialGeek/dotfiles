@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+log() {
+    logger -t autorandr "$1"
+}
+
 for d in {1..6}; do
+    log "bspc desktop $d -m eDP-1"
     bspc desktop $d -m eDP-1
-    sleep 0.2
 done
 
 MONITORS="eDP-1" $HOME/.config/polybar/launch.sh

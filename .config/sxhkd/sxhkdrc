@@ -24,6 +24,9 @@ super + alt + BackSpace
 alt + Tab
     rofi -show window
 
+super + shift + p
+    $HOME/.config/polybar/launch.sh
+
 #
 # multimedia
 #
