@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for d in {1..6}; do
+    bspc desktop $d -m eDP-1
+    sleep 0.2
+done
+
+MONITORS="eDP-1" $HOME/.config/polybar/launch.sh

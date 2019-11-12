@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+for d in {1..3}; do
+    bspc desktop $d -m eDP-1
+    sleep 0.2
+done
+
+for d in {4..6}; do
+    bspc desktop $d -m HDMI-1
+    sleep 0.2
+done
+
+MONITORS=("eDP-1" "HDMI-1") $HOME/.config/polybar/launch.sh
