@@ -1,11 +1,25 @@
 #!/usr/bin/env sh
 
-killall -q polybar
-while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
+log() {
+    logger -t polybar "${@}"
+}
 
-for m in $(xrandr --query | grep '\bconnected' | cut -d " " -f1); do
-    MONITOR=$m polybar -r default &
+log_and_run() {
+    cmd="${@}"
+    log "Running: ${cmd}"
+    eval "${cmd}"
+}
+
+$HOME/.config/polybar/kill.sh
+
+MONITORS=(${MONITORS:-$(xrandr --listactivemonitors | tail -n +2 | awk '{print $4}')})
+
+for m in "${MONITORS[@]}"; do
+    log_and_run MONITOR=$m polybar -r desktops &
+    log_and_run MONITOR=$m polybar -r tray &
+
+    if [ "$(hostname)" == "yoda" ]; then
+        log_and_run MONITOR=$m polybar -r mpd &
+    fi
 done
-
-echo "Bar launched..."
 
